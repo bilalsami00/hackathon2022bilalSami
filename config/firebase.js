@@ -1,5 +1,5 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,8 +19,14 @@ const auth = getAuth(app);
 
 /////////////////////////////////////////////////////////////////////////////
 // SIGN-IN ADMIN
-function signInFirebase(){
+function signInFirebase(email, password){
     return signInWithEmailAndPassword(auth, email, password)
 }
 ////////////////////////////////////////////////////////////////////////////
 
+
+
+
+export{
+    signInFirebase
+}
