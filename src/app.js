@@ -7,7 +7,7 @@ window.signIn = async function () {
 
         try{
             await signInFirebase(email, password)
-            swal("Good job!", "You've logged in!", "success");
+            await swal("Good job!", "You've logged in!", "success");
             setTimeout(window.location.href = './adminDashboard/admin.html', 2000)
         }
         catch(e){
