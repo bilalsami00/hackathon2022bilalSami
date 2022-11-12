@@ -8,12 +8,12 @@ window.signIn = async function () {
         try{
             await signInFirebase(email, password)
             await swal("Good job!", "You've logged in!", "success");
-            setTimeout(window.location.href = './adminDashboard/admin.html', 2000)
+            setTimeout(window.location.href = './adminDashboard/admin.html', 50000)
         }
         catch(e){
             // console.log(e.message )
             swal("Error", "Incorrect email or password", "error");
 
-            
+
         }
 }
