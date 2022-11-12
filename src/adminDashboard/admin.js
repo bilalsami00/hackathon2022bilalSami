@@ -1,4 +1,4 @@
-import {createClassroom} from"../../config/firebase.js"
+import {createClassroom, uploadImage} from"../../config/firebase.js"
 
 window.createClass = async function()
 {
@@ -13,7 +13,7 @@ window.createClass = async function()
     
 
     try {
-        await createClassroom (courseName)  
+        await createClassroom ({schedule, courseName, courseTiming, teacher, sectionName, batchNumber})  
         await swal("congratulations!", "you have added course successfully ", "success");
         // setTimeout(window.location.reload, 2000)
 

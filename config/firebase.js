@@ -25,14 +25,23 @@ const db = getFirestore(app);
 function signInFirebase(email, password){
     return signInWithEmailAndPassword(auth, email, password)
 }
-////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
-function createClassroom(courseName){
-    return addDoc(collection(db, 'classroom'),{courseName})
+function createClassroom(classroomInfo){
+    let {schedule, courseName, courseTiming, teacher, sectionName, batchNumber} = classroomInfo
+    return addDoc(collection(db, 'classroom'),{schedule, courseName, courseTiming, teacher, sectionName, batchNumber})
 }
+//////////////////////////////////////////////////////////////////////////////////
+async function uploadImage(image) {
+    const storageRef = ref(storage, `images/${image.name}`)
+    const snapshot = await uploadBytes(storageRef, image)
+    const url = await getDownloadURL(snapshot.ref)
+    return url;
+  }
 
 
 export{
     signInFirebase,
-    createClassroom
+    createClassroom,
+    uploadImage
 }
